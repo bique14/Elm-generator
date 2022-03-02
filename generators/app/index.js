@@ -22,9 +22,11 @@ module.exports = class extends Generator {
   writing() {
     this.log("Writing..");
     const self = this;
+
+    self.fs.copyTpl(templatePath("elm/src"), self.destinationPath("src/"));
     self.fs.copyTpl(
-      templatePath("storybook/"),
-      self.destinationPath(`storybook/`)
+      templatePath("elm/config"),
+      self.destinationPath("config/")
     );
   }
 };
